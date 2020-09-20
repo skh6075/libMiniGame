@@ -1,7 +1,7 @@
 # MiniGameAPI
 PocketMine-MP easily implement minigames.
 
-### Usage
+# Usage
 
 #### Make GameRoom class.
 
