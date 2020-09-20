@@ -1,0 +1,3 @@
+prefix: "§l§b[MiniGame]§r§7 "
+join.game.room: "§e%name%§a Join Game room! [§e%nowPlayer%§a/§e%maxPlayer%§a]"
+quit.game.room: "§e%name%§a Quit Game room! [§e%nowPlayer%§a/§e%maxPlayer%§a]"
