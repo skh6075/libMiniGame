@@ -34,3 +34,4 @@ $room = new MafiaGameRoom ("mafia", $minPlayer, $maxPlayer, $teamFactory);
 * Add Functions
   - https://github.com/SKHPMMPPlugins/MiniGameAPI/commit/128e8b34e0ed48d2a80ead8ff28db455081df4b5
   - https://github.com/SKHPMMPPlugins/MiniGameAPI/commit/34ec19ec2030f4c36ab15b9e50276ab7c6078c39
+  - https://github.com/SKHPMMPPlugins/MiniGameAPI/commit/10fdd4e8b3cadaa7aef2878e741b359fe333897b
