@@ -31,6 +31,10 @@ class Team{
         return $this->member;
     }
     
+    public function resetMember (): void{
+        $this->member = [];
+    }
+    
     /**
      * @param mixed $player
      * @return bool
