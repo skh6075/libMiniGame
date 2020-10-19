@@ -1,3 +1,0 @@
-prefix: "§l§b[미니게임]§r§7 "
-join.game.room: "§e%name%님§a께서 입장하셨습니다. [§e%nowPlayer%§a/§e%maxPlayer%§a]"
-quit.game.room: "§e%name%님§a께서 퇴장하셨습니다. [§e%nowPlayer%§a/§e%maxPlayer%§a]"
