@@ -28,3 +28,8 @@ $room = new MafiaGameRoom ("mafia", $minPlayer, $maxPlayer, $teamFactory);
 ```
 
 - Implement the rest of the coding in the MafiaGameRoom class by yourself.
+
+# Histories
+
+* Add Functions
+  - https://github.com/SKHPMMPPlugins/MiniGameAPI/commit/128e8b34e0ed48d2a80ead8ff28db455081df4b5
