@@ -11,6 +11,10 @@ use skh6075\MiniGameAPI\team\TeamFactory;
 use skh6075\MiniGameAPI\event\JoinGameRoomEvent;
 use skh6075\MiniGameAPI\event\QuitGameRoomEvent;
 
+use function in_array;
+use function count;
+use function array_search;
+
 abstract class GameRoom{
 
     private $name;
