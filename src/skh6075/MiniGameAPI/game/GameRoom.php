@@ -4,6 +4,7 @@
 namespace skh6075\MiniGameAPI\game;
 
 use pocketmine\Server;
+use pocketmine\Player;
 
 use skh6075\MiniGameAPI\MiniGameAPI;
 use skh6075\MiniGameAPI\team\TeamFactory;
@@ -61,38 +62,55 @@ abstract class GameRoom{
         return in_array (MiniGameAPI::convertName ($player), $this->member);
     }
     
-    public function addMember ($player): void{
+    public function addMember ($player): bool{
         if (!$this->isMember ($player)) {
-            $event = new JoinGameRoomEvent ($this, MiniGameAPI::convertName ($player));
-            $event->call ();
-            if ($event->isCancelled ()) {
-                return;
+            if (count ($this->member) < $this->getMaxPlayer ()) {
+                $this->member [] = MiniGameAPI::convertName ($player);
             }
-            $this->member [] = MiniGameAPI::convertName ($player);
+            return true;
         }
+        return false;
     }
     
-    public function deleteMember ($player): void{
+    public function deleteMember ($player): bool{
         if ($this->isMember ($player)) {
-            $event = new QuitGameRoomEvent ($this, MiniGameAPI::convertName ($player));
-            $event->call ();
-            if ($event->isCancelled ()) {
-                return;
-            }
             unset ($this->member [array_search (MiniGameAPI::convertName ($player), $this->member)]);
+            return true;
         }
+        return false;
+    }
+    
+    final public function resetMember (): void{
+        $this->member = [];
     }
     
     public function startGame (): void{
     }
     
-    public function endGame (): void{
+    public function endGame (string $winner): void{
+    }
+    
+    /**
+     * @return Player[]
+     */
+    public function getMemberPlayers (): array{
+        $res = [];
+        foreach ($this->member as $name) {
+            if (($player = Server::getInstance ()->getPlayer ($name)) !== null)
+                $res [] = $player;
+        }
+        return $res;
     }
     
     public function broadcastMessage (string $msg): void{
-        foreach ($this->member as $name) {
-            if (($player = Server::getInstance ()->getPlayer ($name)) !== null)
-                $player->sendMessage ($msg);
+        foreach ($this->getMemberPlayers () as $player) {
+            $player->sendMessage ($msg);
+        }
+    }
+    
+    public function broadcastPopup (string $popup): void{
+        foreach ($this->getMemberPlayers () as $player) {
+            $player->addActionBarMessage ($popup);
         }
     }
 }
