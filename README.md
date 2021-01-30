@@ -45,3 +45,15 @@ WorldGenerator::getInstance()->extractWorldToDirectory(string $zipPath, string $
 // $name - original zip file name.
 WorldGenerator::getInstance()->restoreWorld(string $zipPath, string $name)
 ```
+
+## PlayerInventory
+
+- savePlayerInventory
+```php
+PlayerInventory::getInventory()->savePlayerInventory(Player $player, bool $directClear =  false);
+```
+
+- sendSavePlayerInventory
+```php
+PlayerInventory::getInstance()->sendSavePlayerInventory(Player $player);
+```
