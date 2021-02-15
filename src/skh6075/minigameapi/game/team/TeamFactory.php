@@ -4,6 +4,7 @@ namespace skh6075\minigameapi\game\team;
 
 class TeamFactory{
 
+    /** @var Team[] */
     private array $teams = [];
 
 
