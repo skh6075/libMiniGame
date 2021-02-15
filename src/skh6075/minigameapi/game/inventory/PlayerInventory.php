@@ -31,7 +31,9 @@ final class PlayerInventory{
         if (!isset(self::$inventories[$player->getLowerCaseName()])) {
             return;
         }
-        $player->getArmorInventory()->setContents(array_map(function (array $data): Item{ return Item::jsonDeserialize($data); }, self::$inventories[$player->getLowerCaseName()][0]));
-        $player->getInventory()->setContents(array_map(function (array $data): Item{ return Item::jsonDeserialize($data); }, self::$inventories[$player->getLowerCaseName()][1]));
+        $inventory = self::$inventories[$player->getLowerCaseName()];
+        $player->getArmorInventory()->setContents(array_map(function (array $data): Item{ return Item::jsonDeserialize($data); }, $inventory[0]));
+        $player->getInventory()->setContents(array_map(function (array $data): Item{ return Item::jsonDeserialize($data); }, $inventory[1]));
+        unset(self::$inventories[$player->getLowerCaseName()]);
     }
 }
