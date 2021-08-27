@@ -1,0 +1,6 @@
+name: libMiniGame
+antigen: skh6075\lib\minigame
+version: 1.0.0
+api: 3.0.0
+author: AvasKr
+php: 8.0
