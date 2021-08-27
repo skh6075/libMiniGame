@@ -1,6 +1,0 @@
-name: MiniGameAPI
-antigen: skh6075\minigame
-api: 4.0.0
-version: 4.0.0
-author: AvasKr
-php: [7.3, 8.0]
