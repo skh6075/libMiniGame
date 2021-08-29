@@ -1,7 +1,7 @@
 # MiniGameAPI
 Tools that make it easy for developers to create MiniGames.
 
-```PHP Version: 8.0.4```
+```PHP Version: 8.0.9```
 
 # Usage
 
