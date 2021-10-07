@@ -31,7 +31,7 @@ final class PlayerInventoryManager{
 			if($method === "" || !method_exists(Player::class, $method)){
 				continue;
 			}
-			$player->{$method}->setContents(json_decode($invData[$sync], true, 512, JSON_THROW_ON_ERROR));
+			$player->{$method . "()"}->setContents(json_decode($invData[$sync], true, 512, JSON_THROW_ON_ERROR));
 		}
 		unset($this->inventories[strtolower($player->getName())]);
 		return true;
@@ -43,9 +43,9 @@ final class PlayerInventoryManager{
 
 	private function syncToMethod(int $sync = self::PLAYER_INVENTORY): string{
 		return match ($sync){
-			self::PLAYER_INVENTORY => "getInventory()",
-			self::CURSOR_INVENTORY => "getCursorInventory()",
-			self::ARMOR_INVENTORY => "getArmorInventory()",
+			self::PLAYER_INVENTORY => "getInventory",
+			self::CURSOR_INVENTORY => "getCursorInventory",
+			self::ARMOR_INVENTORY => "getArmorInventory",
 			default => ""
 		};
 	}
